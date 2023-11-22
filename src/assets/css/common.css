@@ -1,0 +1,36 @@
+.hello {
+  font-size: 100px;
+  color: blue;
+}
+
+.jsx {
+  color: red;
+}
+
+.img {
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+
+.d1 {
+  display: block;
+}
+
+.d2 {
+  display: none;
+}
+
+.render-lang {
+  &>span {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #eee;
+    cursor: pointer;
+  }
+  &>span.on {
+    background-color: orange;
+    color: white;
+    border-color: orange;
+  }
+}
