@@ -1,0 +1,21 @@
+.hello {
+  font-size: 100px;
+  color: blue;
+}
+
+.jsx {
+  color: red;
+}
+
+.img {
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+
+.d1 {
+  display: block;
+}
+.d2 {
+  display: none;
+}
