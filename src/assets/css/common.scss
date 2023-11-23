@@ -16,6 +16,7 @@
 .d1 {
   display: block;
 }
+
 .d2 {
   display: none;
 }
@@ -28,6 +29,7 @@
     border: 1px solid #eee;
     cursor: pointer;
   }
+
   &>span.on {
     background-color: orange;
     color: white;
@@ -41,18 +43,56 @@
   border: 1px solid #ccc;
   border-radius: 3px;
   background-color: white;
-  .re-modal-header{
+  margin: 30px auto;
+
+  .re-modal-header {
     line-height: 50px;
     border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 0 20px;
+    height: 50px;
+    overflow: hidden;
+
+    &>span:last-child {
+      float: right;
+      cursor: pointer;
+    }
   }
-  .re-modal-content{
+
+  .re-modal-content {
     box-sizing: border-box;
     padding: 20px;
     font-size: 12px;
   }
-  .re-modal-footer{
+
+  .re-modal-footer {
     height: 50px;
     box-sizing: border-box;
     padding: 0 20px;
+    border-top: 1px solid #ccc;
+
+    &>span {
+      display: inline-block;
+      padding: 0 15px;
+      line-height: 30px;
+      font-size: 12px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      float: right;
+      margin-left: 10px;
+      margin-top: 10px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    &>span.delete {
+      background-color: red;
+      color: white;
+      border-color: red;
+    }
+    &>span.info {
+      background-color: blue;
+      color: white;
+      border-color: blue;
+    }
   }
 }
