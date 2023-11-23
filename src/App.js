@@ -7,14 +7,15 @@ import React from 'react'
 // import TestCondition from './views/study/TestCondition'
 // import TestList from './views/study/TestList'
 // import TestForm from './views/study/TestForm'
-import TestLife from './views/study/TestLife'
+// import TestLife from './views/study/TestLife'
+import TestLang from './views/study/TestLang'
 
 // const ele = <h1>Hello React 2009</h1>
 
 // 类组件，组件定义
 class App extends React.Component {
   render() {
-    return <TestLife />
+    return <TestLang />
   }
 }
 
