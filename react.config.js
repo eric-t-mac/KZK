@@ -33,7 +33,7 @@ const config = {
     // 打包时，用于把js/css等文件，自动插入到index.html中去
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public/index.html'),
-      title: '2009'
+      title: 'react-review'
     }),
     // 每次打包前，自动清理掉 dist 目录中残留文件
     new CleanWebpackPlugin()
