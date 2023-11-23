@@ -8,7 +8,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 
-import '@/assets/css/common.css'
+import '@/assets/css/common.scss'
 import '@/assets/css/style.scss'
 
 // render的第一个参数必须是一个 React元素

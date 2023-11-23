@@ -9,14 +9,15 @@ import React from 'react'
 // import TestForm from './views/study/TestForm'
 // import TestLife from './views/study/TestLife'
 // import TestLang from './views/study/TestLang'
-import TestLift from './views/study/TestLift'
+// import TestLift from './views/study/TestLift'
+import TestCombine from './views/study/TestCombine'
 
 // const ele = <h1>Hello React 2009</h1>
 
 // 类组件，组件定义
 class App extends React.Component {
   render() {
-    return <TestLift />
+    return <TestCombine />
   }
 }
 

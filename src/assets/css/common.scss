@@ -1,0 +1,58 @@
+.hello {
+  font-size: 100px;
+  color: blue;
+}
+
+.jsx {
+  color: red;
+}
+
+.img {
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+
+.d1 {
+  display: block;
+}
+.d2 {
+  display: none;
+}
+
+/* 自定义语言选择器 */
+.render-lang {
+  &>span {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #eee;
+    cursor: pointer;
+  }
+  &>span.on {
+    background-color: orange;
+    color: white;
+    border-color: orange;
+  }
+}
+
+/* 自定义弹窗 */
+.re-modal {
+  width: 520px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: white;
+  .re-modal-header{
+    line-height: 50px;
+    border-bottom: 1px solid #ccc;
+  }
+  .re-modal-content{
+    box-sizing: border-box;
+    padding: 20px;
+    font-size: 12px;
+  }
+  .re-modal-footer{
+    height: 50px;
+    box-sizing: border-box;
+    padding: 0 20px;
+  }
+}
