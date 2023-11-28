@@ -1,20 +1,56 @@
 import React from "react";
 
 const ReModal = (props) => {
+  const ConfirmBtn = () => (
+    <span onClick={() => props.onOk && props.onOk()} className="info">确定</span>
+  )
+  const CancelBtn = () => (
+    <span onClick={() => props.onCancel && props.onCancel()} className="info">取消</span>
+  )
+  const DeleteBtn = () => (
+    <span onClick={() => props.onDelete && props.onDelete()} className="info">删除</span>
+  )
+  // 动态渲染btns按钮值
+  function renderBtns() {
+    switch (props.type) {
+      case 'confirm':
+        return (
+          <div>
+            <ConfirmBtn />
+            <CancelBtn />
+          </div>
+        )
+        break;
+      case 'delete':
+        return (
+          <div>
+            <CancelBtn />
+            <DeleteBtn />
+          </div>
+        )
+        break;
+      default:
+        return (
+          <div>
+            <ConfirmBtn />
+          </div>
+        )
+    }
+  }
+
   return (
-    <div className="re-modal">
-      <div className="re-modal-header">
-        <span>{props.tip}</span>
-        <span>X</span>
-      </div>
+    <div className="re-modal" style={{ width: props.tip ? '500px' : '410px' }}>
+      {
+        props.tip && <div className="re-modal-header">
+          <span>{props.tip}</span>
+          <span>X</span>
+        </div>
+      }
       <div className="re-modal-content">
-        <h4>你确定要删除吗？</h4>
         {props.children}
       </div>
       <div className="re-modal-footer">
-        <span className="delete">删除</span>
-        <span>取消</span>
-        <span className="info">确定</span>
+        {renderBtns()}
       </div>
     </div>
   );
@@ -26,23 +62,28 @@ export default class TestCombine extends React.Component {
     this.state = {};
   }
 
-  render() {
-    // 动态渲染btns按钮值
-    function renderBtns() {
-        switch(props.type) {
-            case 'confirm':
-                return (<></>
-                    // <span>取消</span>
-                    // <span className="info">确定</span>
-                )
-                break;
-        }
-    }
+  okHandle() {
+    console.log('你点击了 确定 按钮');
+  }
+  cancelHandle() {
+    console.log('你点击了 确定 按钮');
+  }
+  deleteHandle() {
+    console.log('你点击了 删除 按钮');
+  }
 
+  render() {
     return (
       <div>
         <h1>测试组合</h1>
-        <ReModal tip="编辑">
+        <hr />
+        {/* 确认框 */}
+        <ReModal
+          tip="编辑"
+          type="confirm"
+          onOk={() => this.okHandle()}
+          onCancel={() => this.cancelHandle()}
+        >
           <div>
             <span>用户名：</span>
             <input type="text" />
@@ -52,6 +93,33 @@ export default class TestCombine extends React.Component {
             <input type="text" />
           </div>
         </ReModal>
+
+        {/* 用于删除的弹框 */}
+        <ReModal
+          tip="删除"
+          type="delete"
+          onCancel={() => this.cancelHandle()}
+          onDelete={() => this.deleteHandle()}
+        >
+          <div>
+            你确定要删除吗？
+          </div>
+        </ReModal>
+
+        <ReModal tip="删除">
+          <div>
+            你确定要删除吗？
+          </div>
+        </ReModal>
+
+        {/* 无header */}
+        <ReModal type="delete">
+          <div>
+            你确定要删除吗？
+          </div>
+        </ReModal> 
+
+
       </div>
     );
   }
