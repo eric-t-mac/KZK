@@ -10,14 +10,22 @@ import React from 'react'
 // import TestLife from './views/study/TestLife'
 // import TestLang from './views/study/TestLang'
 // import TestLift from './views/study/TestLift'
-import TestCombine from './views/study/TestCombine'
+// import TestCombine from './views/study/TestCombine'
+import TestContext from './views/study/TestContext'
+
+import { ThemeCtx, themes } from './utils/theme'
 
 // const ele = <h1>Hello React 2009</h1>
 
 // 类组件，组件定义
 class App extends React.Component {
   render() {
-    return <TestCombine />
+
+    return (
+      <ThemeCtx.Provider value={themes.light}>
+        <TestContext />
+      </ThemeCtx.Provider>
+    )
   }
 }
 
