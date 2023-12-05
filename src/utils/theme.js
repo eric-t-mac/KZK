@@ -5,11 +5,11 @@ export const ThemeCtx = createContext();
 
 export const themes = {
     light: {
-        color: '#eeeee',
-        background: '#eeeee'
+        color: '#000',
+        background: '#eee'
     },
     dark: {
-        color:'#ffffff',
-        background:'#222222'
+        color:'#fff',
+        background:'#222'
     }
 }

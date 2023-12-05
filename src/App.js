@@ -19,11 +19,23 @@ import { ThemeCtx, themes } from './utils/theme'
 
 // 类组件，组件定义
 class App extends React.Component {
-  render() {
+  constructor(props) {
+    super(props)
+    this.state = {
+      theme: themes.light
+    }
+  }
 
+  toggleTheme() {
+    this.setState(state => ({ theme: Math.random() > 0.5 ? themes.light : themes.dark }))
+  }
+
+  render() {
+    let { theme } = this.state
     return (
-      <ThemeCtx.Provider value={themes.light}>
+      <ThemeCtx.Provider value={theme}>
         <TestContext />
+        <button onClick={() => this.toggleTheme()}>切换主题色</button>
       </ThemeCtx.Provider>
     )
   }
