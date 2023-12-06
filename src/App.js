@@ -11,7 +11,8 @@ import React from 'react'
 // import TestLang from './views/study/TestLang'
 // import TestLift from './views/study/TestLift'
 // import TestCombine from './views/study/TestCombine'
-import TestContext from './views/study/TestContext'
+// import TestContext from './views/study/TestContext'
+import TestHoc from './views/study/TestHoc'
 
 import { ThemeCtx, themes } from './utils/theme'
 
@@ -33,10 +34,11 @@ class App extends React.Component {
   render() {
     let { theme } = this.state
     return (
-      <ThemeCtx.Provider value={theme}>
-        <TestContext />
-        <button onClick={() => this.toggleTheme()}>切换主题色</button>
-      </ThemeCtx.Provider>
+      <TestHoc/>
+      // <ThemeCtx.Provider value={theme}>
+      //   <TestContext />
+      //   <button onClick={() => this.toggleTheme()}>切换主题色</button>
+      // </ThemeCtx.Provider>
     )
   }
 }

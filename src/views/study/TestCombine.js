@@ -1,5 +1,7 @@
 import React from "react";
 
+// 组合：复用UI
+
 const ReModal = (props) => {
   const ConfirmBtn = () => (
     <span onClick={() => props.onOk && props.onOk()} className="info">确定</span>

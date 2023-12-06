@@ -7,5 +7,9 @@ module.exports = {
     ["@babel/preset-env"],
     ["@babel/preset-react"]
   ],
-  "plugins": ["@babel/plugin-transform-destructuring"]
+  "plugins": [
+    ["@babel/plugin-transform-destructuring"],
+    ["@babel/plugin-proposal-class-properties", { "legacy": true }],
+    // ["@babel/plugin-proposal-decorators", { "loose": true }]
+  ]
 }
