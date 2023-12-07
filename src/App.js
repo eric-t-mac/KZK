@@ -13,7 +13,8 @@ import React from 'react'
 // import TestCombine from './views/study/TestCombine'
 // import TestContext from './views/study/TestContext'
 // import TestHoc from './views/study/TestHoc'
-import TestTypes from './views/study/TestTypes'
+// import TestTypes from './views/study/TestTypes'
+import TestHooks from './views/study/TestHook'
 
 import { ThemeCtx, themes } from './utils/theme'
 
@@ -35,7 +36,7 @@ class App extends React.Component {
   render() {
     let { theme } = this.state
     return (
-      <TestTypes/>
+      <TestHooks/>
       // <ThemeCtx.Provider value={theme}>
       //   <TestContext />
       //   <button onClick={() => this.toggleTheme()}>切换主题色</button>
