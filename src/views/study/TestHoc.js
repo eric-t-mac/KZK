@@ -8,9 +8,13 @@ import React from "react";
 // 纯函数：唯一的输入等于唯一的输出
 // npm i @babel/plugin-proposal-class-properties -D
 // npm i @babel/plugin-proposal-decorators -D
-import comment from "../../utils/comment";
+import { comment, roleHoc } from '../../utils/hoc';
+// 装饰器，是ES6中新增的特性
+// 装饰器有两个作用，其一用于修饰一个类，其二可以修饰类的方法
+
 // 第一种写法
 // @comment
+// @roleHoc
 class TestHoc extends React.Component {
     constructor(props) {
         super(props)
@@ -18,7 +22,7 @@ class TestHoc extends React.Component {
 
     render() {
         console.log('props', this.props);
-        const { list } = this.props;
+        const { list, userinfo } = this.props;
         return (
             <>
                 <h1>高阶组件测试</h1>
@@ -29,6 +33,10 @@ class TestHoc extends React.Component {
                             <span>{ele.user}</span>
                             <span>----</span>
                             <span>{ele.content}</span>
+                            
+                            {
+                                userinfo.role === 1 && [<span key="1">----</span>,<span key="2">删除</span>]
+                            }
                         </div>
                     ))
                 }
@@ -38,5 +46,5 @@ class TestHoc extends React.Component {
 }
 
 // 第二种写法
-export default comment(TestHoc)
+export default roleHoc(comment(TestHoc))
 // export default TestHoc

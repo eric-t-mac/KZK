@@ -71,6 +71,8 @@ if (isDev) {
   config.mode = 'development'
   // 当程序报错时，会显示错误在源码中的位置，否则显示在编译后代码中的位置
   config.devtool = 'source-map'
+  // 默认情况下，代码检测是由 eslint 这个包进行检测。
+  // babel-eslint 它可以配合 eslint 一起工作，来检测代码规范
   config.plugins.push(
     new ESLintPlugin({
       exclude: ['node_modules']

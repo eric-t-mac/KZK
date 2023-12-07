@@ -25,9 +25,10 @@ export default function comment(WrappedComponent) {
 
         render() {
             let { commentList } = this.state
+            let props = this.props
             return (
                 <div>
-                    <WrappedComponent list={commentList} />
+                    <WrappedComponent list={commentList} {...props}/>
                 </div>
             )
         }
