@@ -38,3 +38,11 @@ cnpm install webpack-cli -D
 出口
 loaders
 plugins
+
+## react-router-dom
+
+* 官网： https://v5.reactrouter.com/web/api/BrowserRouter
+* 安装：npm install react-router-dom -S
+* 常用组件：HashRouter/BrowserRouter，Router，NavLink/Link，Redirect，Switch
+* 高阶组件：withRouter
+* 编程式路由跳转、路由动态传递
