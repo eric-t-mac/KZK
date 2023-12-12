@@ -41,24 +41,24 @@ class TestProps extends Component {
     return (
       <div>
         <h1>测试Props</h1>
-        <hr/>
+        <hr />
         {/* 把state变量渲染到真实的DOM上 */}
         <h2>{msg}</h2>
-        <hr/>
+        <hr />
         {/* 把props外部数据渲染到真实的DOM上 */}
         <h2>{msg2}</h2>
         <h1>{hello}</h1>
         {/* 在JSX中，可以直接渲染一个由React元素构成的数组变量 */}
-        { eleArr }
+        {eleArr}
         {
-          bol && arr.map((ele,idx)=><div key={idx}>{ele*10000}</div>)
+          bol && arr.map((ele, idx) => <div key={idx}>{ele * 10000}</div>)
         }
         <div>
           <span>{user.name}</span>
           <span>------</span>
           <span>{user.age}</span>
         </div>
-        { ele }
+        {ele}
       </div>
     )
   }
@@ -74,21 +74,25 @@ export default (props) => {
   return (
     <div>
       <h1>测试Props</h1>
-      <hr/>
+      <hr />
       {/* 把props外部数据渲染到真实的DOM上 */}
       <h2>{msg2}</h2>
       <h1>{hello}</h1>
       {/* 在JSX中，可以直接渲染一个由React元素构成的数组变量 */}
-      { eleArr }
+      {eleArr}
       {
-        bol && arr.map((ele,idx)=><div key={idx}>{ele*10000}</div>)
+        bol && arr.map((ele, idx) => <div key={idx}>{ele * 10000}</div>)
       }
-      <div>
-        <span>{user.name}</span>
-        <span>------</span>
-        <span>{user.age}</span>
-      </div>
-      { ele }
+      {
+        user && (
+          <div>
+            <span>{user.name}</span>
+            <span>------</span>
+            <span>{user.age}</span>
+          </div>
+        )
+      }
+      {ele}
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { useLocation } from 'react-router-dom'
 import img from '@/utils/img'
 
 // 什么是JSX？
@@ -22,11 +22,11 @@ const red = 'jsx'
 
 const ele1 = <div className={red}>Hello JSX</div>
 
-const ele2 = <div>{ Math.random() }</div>
+const ele2 = <div>{Math.random()}</div>
 
 const ele3 = <div>{ele1}{ele2}</div>
 
-const ele4 = ()=><div>{ele3}</div>
+const ele4 = () => <div>{ele3}</div>
 
 function ele5() {
   return ele4()
@@ -42,17 +42,18 @@ const ele6 = React.createElement(
 // 类组件
 class TestJsx extends React.Component {
   render() {
+    console.log('---test class jsx props', this.props);
     return (
       <div>
-        { ele1 }
-        { ele2 }
-        { ele3 }
-        { ele4() }
-        { ele5() }
+        {ele1}
+        {ele2}
+        {ele3}
+        {ele4()}
+        {ele5()}
         {/* 这是我公司的图片 */}
         <img className='img' src={img.logo} />
-        <hr/>
-        { ele6 }
+        <hr />
+        {ele6}
       </div>
     )
   }
@@ -60,25 +61,28 @@ class TestJsx extends React.Component {
 
 // 函数式组件（无状态组件）
 // 用function关键来定义，也可以用箭头函数来定义
-export default ()=> {
-  const bol = Math.random() > 0.5
+export default props => {
+  const bol = Math.random() > 0.5;
+  const location = useLocation();
+  console.log('---test jsx props', props);
+  console.log('---test jsx location', location);
   // do something
   return (
     <div>
-      { ele1 }
-      { ele2 }
-      { ele1 }
-      { ele2 }
-      <hr/>
-      { ele3 }
-      { ele4() }
-      { ele5() }
+      {ele1}
+      {ele2}
+      {ele1}
+      {ele2} 
+      <hr />
+      {ele3}
+      {ele4()}
+      {ele5()}
       {/* 这是我公司的图片 */}
       <img className='img' src={img.logo} />
-      <hr/>
-      { ele6 }
-      <hr/>
-      { bol ? ele1 : ele2 }
+      <hr />
+      {ele6}
+      <hr />
+      {bol ? ele1 : ele2}
     </div>
   )
 }

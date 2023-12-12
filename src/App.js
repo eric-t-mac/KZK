@@ -14,7 +14,8 @@ import React from 'react'
 // import TestContext from './views/study/TestContext'
 // import TestHoc from './views/study/TestHoc'
 // import TestTypes from './views/study/TestTypes'
-import TestHooks from './views/study/TestHook'
+// import TestHooks from './views/study/TestHook'
+import { Layout } from './components';
 
 import { ThemeCtx, themes } from './utils/theme'
 
@@ -51,8 +52,9 @@ import { HashRouter, BrowserRouter } from 'react-router-dom';
 // 函数式组件，组件定义
 function App() {
   return (
-    <BrowserRouter>
-        {/*
+    <HashRouter>
+      <Layout></Layout>
+      {/*
         <TestProps
           msg2='hello msg'
           hello='hello child'
@@ -62,9 +64,9 @@ function App() {
           ele={<div>react child ele</div>}
         />
       */}
-        {/*<TestEvent msg='hello set state' />*/}
-        <TestHooks />
-    </BrowserRouter>
+      {/*<TestEvent msg='hello set state' />*/}
+      {/* <TestHooks /> */}
+    </HashRouter>
   )
 }
 

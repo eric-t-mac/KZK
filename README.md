@@ -46,3 +46,8 @@ plugins
 * 常用组件：HashRouter/BrowserRouter，Router，NavLink/Link，Redirect，Switch
 * 高阶组件：withRouter
 * 编程式路由跳转、路由动态传递
+
+### 三个问题：
+1. url如何跳转，如何改变url
+2. 一一对应的匹配规则如何定义
+3. 椅子放在哪里
