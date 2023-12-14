@@ -13,32 +13,40 @@ export default props => {
     // </Switch>
     // v6版本，Routes => Route，且Route移除了exact，exact在v5是作为精准匹配，在Navlink中也有添加
 
+    // 在生成 Route 数组时，其外层不能包裹任何HTML节点，它的直接父组件只能是 Routes
     const createRoutes = () => {
-        return (
-            <Routes>
-                {/* 
-                    在生成 Route 数组时，其外层不能包裹任何HTML节点，它的直接父组件只能是 Routes
-                */}
-                {
-                    routes.map(ele => (
-                        /* 传递函数或者类 */
+        let res = [];
+        routes.map(ele => {
+            res.push(
+                /* 传递组件作为React元素 */
+                // <Route key={ele.id} path={ele.path} element={ele.component} />
+                /* 传递函数或者类 */
+                <Route
+                    key={ele.id}
+                    path={ele.path}
+                    Component={ele.component}
+                />
+            )
+            if (ele.children) {
+                ele.children.map(ele => {
+                    res.push(
                         <Route
                             key={ele.id}
                             path={ele.path}
                             Component={ele.component}
                         />
-                        /* 传递组件作为React元素 */
-                        // <Route key={ele.id} path={ele.path} element={ele.component} />
-                    ))
-                }
-                {/* 初始渲染时重定向 */}
-                <Route path="*" element={<Navigate to="/" />} />
-            </Routes>
-        )
+                    )
+                })
+            }
+        })
+        return res;
     }
     return (
         <div className="re-main">
-            {createRoutes()}
+            <Routes>
+                {createRoutes()}
+                <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
         </div>
     )
 }

@@ -13,6 +13,8 @@ import TestContext from './study/TestContext';
 import TestHoc from './study/TestHoc';
 import TestTypes from './study/TestTypes';
 import TestHooks from './study/TestHook';
+import MusicList from './music/MusicList';
+import MusicDetail from './music/MusicDetail';
 
 const routes = [
     {
@@ -104,6 +106,19 @@ const routes = [
         text: '使用Hooks',
         path: '/hooks',
         component: TestHooks
+    },
+    {
+        id: 25,
+        text: '音乐列表',
+        path: '/music',
+        component: MusicList,
+        children: [
+            {
+                id: 2501,
+                path: '/music/detail',
+                component: MusicDetail
+            }
+        ]
     }
 ]
 export default routes;
