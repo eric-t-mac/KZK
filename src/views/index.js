@@ -1,4 +1,14 @@
-import TestJsx from './study/TestJsx';
+// 在React环境中，如何实现“代码分割”？
+// 也是性能优化的标准
+
+// npm install @loadable/component -S
+// 把所有路由匹配组件都写成 const Home = loadable(() => import('./Home.js'))
+// 如果报了 动态import 语法错误，或者@babel/core在7.8.0以下的，请安装这个babel插件
+// npm install --save-dev @babel/plugin-syntax-dynamic-import
+// 在 babel.config.js 中添加一个plugins配置，重启项目即可
+import loadable from '@loadable/component'
+const TestJsx = loadable(() => import('./study/TestJsx'));
+
 import TestProps from './study/TestProps';
 import TestEvent from './study/TestEvent';
 import TestState from './study/TestState';
@@ -115,7 +125,7 @@ const routes = [
         children: [
             {
                 id: 2501,
-                path: '/music/detail',
+                path: '/music/detail/:id/:name',
                 component: MusicDetail
             }
         ]

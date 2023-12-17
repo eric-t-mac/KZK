@@ -1,15 +1,22 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import { useNavigate } from "react-router";
 
 const MusicRow = props => {
     const { music } = props;
+    const navigate = useNavigate();
+    const skipToDetail = () => {
+        console.log('musicRow props', props);
+        // 编程式路由跳转
+        navigate(`/music/detail/${music.id}/${music.name}`)
+    }
     return (
         <div>
             <span>{music.id}</span>
             <span>---</span>
             <span>{music.name}</span>
             <span>---</span>
-            <span>跳转</span>
+            <span onClick={skipToDetail} >跳转</span>
         </div>
     )
 }
