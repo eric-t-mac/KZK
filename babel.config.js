@@ -11,6 +11,7 @@ module.exports = {
     ["@babel/plugin-transform-destructuring"],
     // 下面两个插件的作用是编译装饰器语法
     ["@babel/plugin-proposal-class-properties", { "legacy": true }],
+    // ["@babel/plugin-proposal-decorators", { "legacy": true }]
     // ["@babel/plugin-syntax-dynamic-import"]
     // ["@babel/plugin-proposal-decorators", { "loose": true }]
   ]

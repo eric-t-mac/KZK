@@ -35,7 +35,7 @@ cnpm install webpack-cli -D
   ```
 
 入口
-出口
+出口S 
 loaders
 plugins
 
@@ -51,3 +51,12 @@ plugins
 1. url如何跳转，如何改变url
 2. 一一对应的匹配规则如何定义
 3. 椅子放在哪里
+
+## 状态管理
+
+状态，就是数据。状态管理工具，是用来对应用程序中的数据流进行科学地管理。
+最早出现状态管理思想的是Flux（FaceBook推出的一套设计模式，解决了数据管理的问题），Flux只是一套数据流管理的指导思想、设计模式。
+
+mobx + mobx-react 小项目经常用
+
+redux + redux-react 大项目经常用

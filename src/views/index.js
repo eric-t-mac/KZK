@@ -8,23 +8,22 @@
 // 在 babel.config.js 中添加一个plugins配置，重启项目即可
 import loadable from '@loadable/component'
 const TestJsx = loadable(() => import('./study/TestJsx'));
-
-import TestProps from './study/TestProps';
-import TestEvent from './study/TestEvent';
-import TestState from './study/TestState';
-import TestCondition from './study/TestCondition';
-import TestList from './study/TestList';
-import TestForm from './study/TestForm';
-import TestLife from './study/TestLife';
-import TestLang from './study/TestLang';
-import TestLift from './study/TestLift';
-import TestCombine from './study/TestCombine';
-import TestContext from './study/TestContext';
-import TestHoc from './study/TestHoc';
-import TestTypes from './study/TestTypes';
-import TestHooks from './study/TestHook';
-import MusicList from './music/MusicList';
-import MusicDetail from './music/MusicDetail';
+const TestProps = loadable(() => import('./study/TestProps'));
+const TestEvent = loadable(() => import('./study/TestEvent'));
+const TestState = loadable(() => import('./study/TestState'));
+const TestCondition = loadable(() => import('./study/TestCondition'));
+const TestList = loadable(() => import('./study/TestList'));
+const TestForm = loadable(() => import('./study/TestForm'));
+const TestLife = loadable(() => import('./study/TestLife'));
+const TestLang = loadable(() => import('./study/TestLang'));
+const TestLift = loadable(() => import('./study/TestLift'));
+const TestCombine = loadable(() => import('./study/TestCombine'));
+const TestContext = loadable(() => import('./study/TestContext'));
+const TestHoc = loadable(() => import('./study/TestHoc'));
+const TestTypes = loadable(() => import('./study/TestTypes'));
+const TestHooks = loadable(() => import('./study/TestHook'));
+const MusicList = loadable(() => import('./music/MusicList'));
+const MusicDetail = loadable(() => import('./music/MusicDetail'));
 
 const routes = [
     {

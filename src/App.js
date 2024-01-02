@@ -1,23 +1,14 @@
 import React from 'react'
 
 // import TestJsx from './views/study/TestJsx'
-// import TestProps from './views/study/TestProps'
-// import TestEvent from './views/study/TestEvent'
-// import TestState from './views/study/TestState'
-// import TestCondition from './views/study/TestCondition'
-// import TestList from './views/study/TestList'
-// import TestForm from './views/study/TestForm'
-// import TestLife from './views/study/TestLife'
-// import TestLang from './views/study/TestLang'
-// import TestLift from './views/study/TestLift'
-// import TestCombine from './views/study/TestCombine'
-// import TestContext from './views/study/TestContext'
-// import TestHoc from './views/study/TestHoc'
-// import TestTypes from './views/study/TestTypes'
-// import TestHooks from './views/study/TestHook'
+
 import { Layout } from './components';
 
-import { ThemeCtx, themes } from './utils/theme'
+import { ThemeCtx, themes } from './utils/theme';
+
+// mobx-react的使用，用于把mobx store 和 react 组件组装起来
+import { Provider } from 'mobx-react';
+import store from './store';
 
 // const ele = <h1>Hello React 2009</h1>
 
@@ -53,7 +44,10 @@ import { HashRouter, BrowserRouter } from 'react-router-dom';
 function App() {
   return (
     <HashRouter>
-      <Layout></Layout>
+      <Provider store={store}>
+        {console.log('>>store', store)}
+        <Layout></Layout>
+      </Provider>
       {/*
         <TestProps
           msg2='hello msg'
