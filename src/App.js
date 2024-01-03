@@ -44,6 +44,7 @@ import { HashRouter, BrowserRouter } from 'react-router-dom';
 function App() {
   return (
     <HashRouter>
+      {/* Provider是一个组件，它是基于React上下文来封装的 */}
       <Provider store={store}>
         {console.log('>>store', store)}
         <Layout></Layout>

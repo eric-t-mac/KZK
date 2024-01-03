@@ -7,8 +7,12 @@ const MusicList = props => {
     console.log('musicList props', props);
     const [list, setList] = useState([]);
 
-    const changeMsg = () => {
-
+    const { msg, secondsPassed,  } = props.store;
+    const changeMsgs = () => {
+        props.store.changeMsg('hello 修改成功')
+    }
+    const test = () => {
+        props.store.increase()
     }
 
     useEffect(() => {
@@ -25,14 +29,16 @@ const MusicList = props => {
             <h1>音乐列表</h1>
             {
                 list.map(ele => (
-                    <MusicRow key={ele.id} music={ele}/>
+                    <MusicRow key={ele.id} music={ele} />
                 ))
             }
 
-            <h1>{props.store.msg}</h1>
-            <button onClick={() => changeMsg()}>修改store中的msg， msg可以自动更新</button>
+            <h1>{msg}</h1>
+            <button onClick={() => changeMsgs()}>修改store中的msg， msg可以自动更新</button>
+            <h1>{secondsPassed}</h1>
+            <button onClick={() => test()}>修改store中的secondsPassed， secondsPassed可以自动更新</button>
         </div>
-    ) 
+    )
 }
 
 // inject('store')() 向组件中注入store数据

@@ -6,27 +6,84 @@
 
 import {
     observable,
+    makeObservable,
     action,
     makeAutoObservable // 可被观察的
 } from 'mobx';
 
-function store() {
-    return makeAutoObservable({
-        msg: 'hello mobx',
+// 分modules
+import TodoStore from './modules/todo'
+import MusicStore from './modules/music'
+
+/**
+ * makeAutoObservable
+ */
+// function store() {
+//     return makeAutoObservable({
+//         msg: 'hello mobx',
+//         secondsPassed: 0,
+        
+//         changeMsg(payload) {
+//             console.log('payload', payload);
+//             this.msg = payload; // 使用 this.msg 来引用 msg 属性
+//         },
+//         increase() {
+//             this.secondsPassed += 1
+//         },
+//         reset() {
+//             this.secondsPassed = 0
+//         }
+//     })
+// }
+
+/**
+ * makeObservable
+ */
+function store1() {
+    const storeInstance = {
+        msg: 'hello mobx1',
+        secondsPassed: 0,
+        todo: TodoStore,
+        music: MusicStore,
         changeMsg(payload) {
-            this.msg = payload;
+            console.log('payload', payload);
+            this.msg = payload; // 使用 this.msg 来引用 msg 属性
+        },
+        increase() {
+            this.secondsPassed += 1
+        },
+        reset() {
+            this.secondsPassed = 0
         }
+    };
+
+    // 使用 makeObservable 添加观察者
+    makeObservable(storeInstance, {
+        msg: observable,
+        secondsPassed: observable,
+        changeMsg: action,
+        increase: action,
+        reset: action
     })
-}
-class Store {
-    // 将 makeAutoObservable 放在属性声明之前
-    constructor() {
-        makeAutoObservable(this);
-    }
 
-    // 使用 observable 装饰器声明属性
-    // @observable msg = 'hello 2009';
+    return storeInstance
 }
 
-// export default new Store();
-export default store();
+export default store1();
+
+// mobx5 的写法
+// 在mobx5中,是没有 makeObservable/makeAutoObservable这些api
+// class Store {
+//     constructor() {
+//         this.todo = new TodoStore()
+//     }
+//     @observable msg = 'hello msg'
+//     @action 
+//     changeMsg() {
+
+//     }
+//     @computed
+//     get total() {
+//         return this.msg.length
+//     }
+// }

@@ -22,8 +22,11 @@ const TestContext = loadable(() => import('./study/TestContext'));
 const TestHoc = loadable(() => import('./study/TestHoc'));
 const TestTypes = loadable(() => import('./study/TestTypes'));
 const TestHooks = loadable(() => import('./study/TestHook'));
+
 const MusicList = loadable(() => import('./music/MusicList'));
 const MusicDetail = loadable(() => import('./music/MusicDetail'));
+
+const TodoList = loadable(() => import('./todo-mobx/TodoList.js'))
 
 const routes = [
     {
@@ -128,6 +131,12 @@ const routes = [
                 component: MusicDetail
             }
         ]
+    },
+    {
+        id: 26,
+        text: 'TODOLIST',
+        path: '/todo',
+        component: TodoList
     }
 ]
 export default routes;
