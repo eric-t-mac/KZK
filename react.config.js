@@ -92,6 +92,13 @@ if (isDev) {
     // 当本地项目运行时，发生errors错误，以覆盖层的方式遮住视图
     overlay: {
       errors: true
+    },
+    // nodeJs服务请求QQ会跨域，但没有同源策略，同源策略只存在于浏览器发出请求
+    proxy: {
+      '/splcloud': {
+        target: 'https://c.y.qq.com',
+        changeOrigin: true
+      }
     }
   }
 }

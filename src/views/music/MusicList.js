@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import MusicRow from "./MusicRow";
 
 import { observer, inject } from 'mobx-react';
+import { fetchQqMusic } from "../../utils/api";
 
 const MusicList = props => {
     console.log('musicList props', props);
@@ -23,6 +24,17 @@ const MusicList = props => {
         ]
         setList(res)
         return undefined;
+    }, [])
+
+    useEffect(() => {
+        const str = `_=1704294660122&cv=4747474&ct=24&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=yqq.json&needNewCode=1&uin=596508302&g_tk_new_20200303=291690059&g_tk=291690059&hostUin=0&is_xml=0&key=%E5%91%A8%E6%9D%B0%E4%BC%A6`
+        str.split('&').map(ele => {
+            console.log('ele', ele);
+        })
+        fetchQqMusic({}).then(res => {
+            console.log('音乐列表', res);
+        }) 
+        return undefined
     }, [])
     return (
         <div>

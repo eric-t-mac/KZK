@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@loadable/component": "^5.16.2",
+    "axios": "^1.6.3",
     "mobx": "^6.12.0",
     "mobx-react": "^9.1.0",
     "prop-types": "^15.8.1",
