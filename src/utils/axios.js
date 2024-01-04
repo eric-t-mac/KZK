@@ -25,8 +25,15 @@ instance.interceptors.request.use(
 // Add a response interceptor
 instance.interceptors.response.use(
   function (response) {
+    console.log('response instance', response);
     // 对后端数据进行过滤（状态码）
-    return response;
+    let res = null;
+    if (response.status === 200) {
+      if (response.data && response.data.code === 0) {
+        res = response.data.data
+      }
+    }
+    return res;
   },
   function (error) {
     return Promise.reject(error);

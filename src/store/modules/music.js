@@ -6,10 +6,16 @@ import {
     makeAutoObservable
 } from 'mobx'
 
+import {
+    fetchQqMusic
+} from '../../utils/api'
+
 function MusicStore() {
     return makeAutoObservable({
-        reset() {
-            this.secondsPassed = 0
+        list: [],
+        async changeList(payload) {
+            const res = await fetchQqMusic(payload);
+            this.list = res.song.itemlist
         }
     })
 }

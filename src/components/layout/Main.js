@@ -14,27 +14,27 @@ export default (props) => {
   // v6版本，Routes => Route，且Route移除了exact，exact在v5是作为精准匹配，在Navlink中也有添加
 
   // 在生成 Route 数组时，其外层不能包裹任何HTML节点，它的直接父组件只能是 Routes
-//   const createRoutes = () => {
-//     let res = [];
-//     // 将routes扁平化
-//     routes.map((ele) => {
-//       res.push(
-//         /* 传递组件作为React元素 */
-//         // <Route key={ele.id} path={ele.path} element={ele.component} />
-//         /* 传递函数或者类 */
-//         <Route key={ele.id} path={ele.path} Component={ele.component} />
-//       );
-//       if (ele.children) {
-//         ele.children.map((ele) => {
-//           res.push(
-//             <Route key={ele.id} path={ele.path} Component={ele.component} />
-//           );
-//         });
-//       }
-//     });
-//     console.log('rees', res);
-//     return res;
-//   };
+  //   const createRoutes = () => {
+  //     let res = [];
+  //     // 将routes扁平化
+  //     routes.map((ele) => {
+  //       res.push(
+  //         /* 传递组件作为React元素 */
+  //         // <Route key={ele.id} path={ele.path} element={ele.component} />
+  //         /* 传递函数或者类 */
+  //         <Route key={ele.id} path={ele.path} Component={ele.component} />
+  //       );
+  //       if (ele.children) {
+  //         ele.children.map((ele) => {
+  //           res.push(
+  //             <Route key={ele.id} path={ele.path} Component={ele.component} />
+  //           );
+  //         });
+  //       }
+  //     });
+  //     console.log('rees', res);
+  //     return res;
+  //   };
   const createRoutes = (routes) => {
     return routes
       .map((item) => {
@@ -50,6 +50,24 @@ export default (props) => {
       })
       .flat();
   };
+
+  // const v2 = (routes) => {
+  //   let res = []
+  //   const serChildren = arr => {
+  //     arr.map(item => {
+  //       res.push(
+  //         <Route key={item.id} path={item.path} Component={item.component} />
+  //       )
+  //       if (item.children) serChildren(item.children)
+  //     })
+  //   }
+  //   routes.map(item => {
+  //     if (item.children) {
+  //       serChildren(item.children)
+  //     }
+  //   })
+  //   return res;
+  // }
 
   return (
     <div className="re-main">

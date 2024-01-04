@@ -11,8 +11,7 @@
         top: 0;
         bottom: 0;
         left: 0;
-        width: 150px;
-        background-color: #999;
+        background-color: #000c17;
 
         &>div {
             text-align: center;
@@ -34,11 +33,9 @@
     }
 
     .re-header {
-        position: absolute;
-        top: 0;
         height: 60px;
-        left: 150px;
-        right: 0;
+        width: 100%;
+        padding: 0 50px;
     }
 
     .re-main {
@@ -48,5 +45,6 @@
         left: 150px;
         right: 0;
         background-color: #eee;
+        padding: 0 50px;
     }
 }

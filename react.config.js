@@ -11,11 +11,11 @@ const ESLintPlugin = require('eslint-webpack-plugin')
 
 // 使用 cross-env 这个库，可以方便地向 Node 进程中添加环境变量
 const isDev = process.env.NODE_ENV === 'development'
-console.log('-----------------------', isDev,  process.env.NODE_ENV)
+console.log('-----------------------', isDev, process.env.NODE_ENV)
 
 const config = {
   // 在这里写 生产环境的配置
-  mode : 'production',
+  mode: 'production',
   // 入口，程序的入口
   // entry: path.resolve(__dirname, './src/main.js'),
   entry: {
@@ -45,6 +45,16 @@ const config = {
     rules: [
       // sass是Sass的编译器，它的作用是把sass-loader加载进来的scss文件编译成css文件。
       { test: /\.(css|scss)$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
+      // less-loader用于加载.less文件，交给 less 进行编译，编译成 CSS 文件。
+      {
+        test: /\.less$/i,
+        use: [
+          // compiles Less to CSS
+          'style-loader',
+          'css-loader',
+          'less-loader',
+        ]
+      },
       // file-loader的作用，是专门用于加载图片资源的。
       { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] },
       // babel-loader用于加载.js文件，并交给 @babel/* 编译器
@@ -98,7 +108,7 @@ if (isDev) {
       '/splcloud': {
         target: 'https://c.y.qq.com',
         changeOrigin: true
-      }
+      },
     }
   }
 }
